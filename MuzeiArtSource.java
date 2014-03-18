@@ -1,4 +1,4 @@
-package com.knok.behang.service;
+package com.your.application;
 
 import android.content.Context;
 import android.content.Intent;
@@ -42,7 +42,7 @@ public class YourArtSource extends RemoteMuzeiArtSource  {
     private long duration = 3 * 60 * 60 * 1000;//3 hours
     private artworkWallpaper artwork = null;
 
-    public BehangArtSource() {
+    public YourArtSource() {
         super(SOURCE_NAME);
     }
 
@@ -68,13 +68,12 @@ public class YourArtSource extends RemoteMuzeiArtSource  {
                     //schedule update with duration set in shared prefs
                     scheduleUpdate(System.currentTimeMillis() + duration);
                 }
-                else{
+        catch(Exception ex){
                     //if update fails, schedule another update in duration set
                     scheduleUpdate(System.currentTimeMillis() + duration);
 
                 }
-            }
-          
+
     }
 
 }
