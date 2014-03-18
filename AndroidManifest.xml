@@ -1,0 +1,42 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.knok.behang"
+          android:versionCode="14"
+          android:versionName="1.6.1">
+
+    <uses-sdk
+            android:minSdkVersion="7"
+            android:targetSdkVersion="19"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+ 	<uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <application android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/WPTheme">
+
+        
+        <service android:name=".service.YourArtSource"
+            android:label="@string/source_name"
+            android:description="@string/source_description"
+
+            android:icon="@drawable/muzei_behang_icon">
+            <intent-filter>
+                <action android:name="com.google.android.apps.muzei.api.MuzeiArtSource" />
+            </intent-filter>
+
+            <meta-data android:name="color" android:value="#ff2d00" />
+            <meta-data android:name="settingsActivity"
+                       android:value="com.your.application.MuzeiSettingsActivity" />
+
+            <!-- A settings activity is optional -->
+        </service>
+        <activity android:name="com.your.application.MuzeiSettingsActivity"
+                  android:label="Settings"
+                  android:exported="true"
+                  android:theme="@style/config_theme"
+                  />
+    </application>
+
+</manifest>
